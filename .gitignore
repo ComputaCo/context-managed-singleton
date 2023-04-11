@@ -1,0 +1,36 @@
+# Compiled python files
+*.pyc
+
+# Environment and virtualenv files
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+ENV.bak/
+
+# Logs
+*.log
+log/
+logs/
+
+# Build files
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Cache and temp files
+*.cache/
+*.pyc
+__pycache__/
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Package/Dependency files
+pip-log.txt
+requirements.txt
