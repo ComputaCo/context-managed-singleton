@@ -1,10 +1,15 @@
 [tool.poetry]
-name = "context_managed_singleton"
-version = "0.1.0"
-description = "Simple stack-based state context management"
+name = "context-managed-singleton"
+version = "1.0.0"
+description = "Simple stack-based, context managed singleton-ish utility"
 authors = ["Jacob Valdez <jacob.valdez@limboid.ai>"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://github.com/Limboid/context-managed-singleton"
+repository = "https://github.com/Limboid/context-managed-singleton"
+keywords = ["singleton"]
+classifiers = ["Topic :: Software Development :: Libraries :: Python Modules"]
+packages = [{ include = "context_managed_singleton" }]
 
 [tool.poetry.dependencies]
 python = "^3.8"
