@@ -5,8 +5,8 @@ from typing import Any, Optional, Type, TypeVar
 T = TypeVar("T", bound="Type")
 
 
-class ContextManagedSingleton:
-    """A singleton class that maintains a stack of instances in a context.
+class Context:
+    """A data structures that maintains a stack of instances in a context.
 
     This class can be subclassed or wrapped around another class using the
     `wrap` static method. Optionally, it allows for recursive attribute search
@@ -42,11 +42,11 @@ class ContextManagedSingleton:
             )
 
     @classmethod
-    def current(cls) -> "ContextManagedSingleton":
+    def current(cls) -> "Context":
         """Return the most recent instance that entered the context.
 
         Returns:
-            ContextManagedSingleton: The current instance at the top of the stack.
+            Context: The current instance at the top of the stack.
 
         Raises:
             RuntimeError: If no instance has entered the context.
@@ -55,11 +55,11 @@ class ContextManagedSingleton:
             raise RuntimeError("No instance of the class has entered the context.")
         return cls.__current[cls][-1]
 
-    def __enter__(self) -> "ContextManagedSingleton":
+    def __enter__(self) -> "Context":
         """Push the instance to the context stack and return itself.
 
         Returns:
-            ContextManagedSingleton: The current instance.
+            Context: The current instance.
         """
         if self.__class__ not in self.__current:
             self.__current[self.__class__] = []
@@ -99,15 +99,15 @@ class ContextManagedSingleton:
 
     @staticmethod
     def wrap(target_class: T) -> T:
-        """Subclass the target class with ContextManagedSingleton
+        """Subclass the target class with Context
         Args:
             target_class (T): The class to be wrapped.
 
         Returns:
-            T: A new class that subclasses both the target class and ContextManagedSingleton.
+            T: A new class that subclasses both the target class and Context.
         """
 
-        class Wrapped(target_class, ContextManagedSingleton):
+        class Wrapped(target_class, Context):
             pass
 
         Wrapped.__name__ = target_class.__name__

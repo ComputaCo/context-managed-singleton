@@ -1,15 +1,15 @@
 [tool.poetry]
-name = "context-managed-singleton"
+name = "context-managed-data-structures"
 version = "1.0.0"
-description = "Simple stack-based, context managed singleton-ish utility"
+description = "Simple stack-based, context managed context-ish utility"
 authors = ["Jacob Valdez <jacob.valdez@limboid.ai>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/Limboid/context-managed-singleton"
-repository = "https://github.com/Limboid/context-managed-singleton"
-keywords = ["singleton"]
+homepage = "https://github.com/Limboid/context-managed-data-structures"
+repository = "https://github.com/Limboid/context-managed-data-structures"
+keywords = ["context"]
 classifiers = ["Topic :: Software Development :: Libraries :: Python Modules"]
-packages = [{ include = "context_managed_singleton" }]
+packages = [{ include = "context_managed_data_structures" }]
 
 [tool.poetry.dependencies]
 python = "^3.8"
